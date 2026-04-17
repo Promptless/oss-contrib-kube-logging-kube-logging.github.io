@@ -3,6 +3,10 @@ title: What's new
 weight: 50
 ---
 
+## Version 6.5
+
+- The Fluentd image now includes [Typhoeus](https://github.com/typhoeus/typhoeus) as an alternative HTTP backend. Typhoeus supports connection keepalive, which can improve throughput when sending logs to HTTP-based outputs like [Elasticsearch]({{< relref "/docs/configuration/plugins/outputs/elasticsearch.md#elasticsearch-http_backend" >}}) and [OpenSearch]({{< relref "/docs/configuration/plugins/outputs/opensearch.md#opensearch-http_backend" >}}). To use it, set `http_backend: typhoeus` in your output configuration.
+
 ## Version 6.4
 
 - You can now configure [`terminationGracePeriodSeconds`]({{< relref "/docs/configuration/crds/v1beta1/fluentd_types.md#fluentdspec-terminationgraceperiodseconds" >}}) for Fluent Bit, Fluentd, and syslog-ng pods. This controls how long Kubernetes waits before forcefully terminating pods, giving log buffers time to flush during graceful shutdowns.
